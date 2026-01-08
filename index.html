@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Code naar hint</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 8px 14px;
+      font-size: 16px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+    #hint {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Voer de code in</h2>
+  <p>Vul de juiste code in om de hint te zien.</p>
+
+  <input id="code" type="text" placeholder="Code">
+  <button onclick="checkCode()">Controleer</button>
+
+  <p id="message"></p>
+  <p id="hint" style="display:none;">
+    ✅ Correct! Hier is je hint: <br>
+    <span id="hint-text"></span>
+  </p>
+
+  <script>
+    // HIER PAS JE DE CODE EN DE HINT AAN
+    const CORRECT_CODE = "1234";          // Verander dit in jouw code
+    const HINT_TEXT = "Zoals zorg en technologie samenwerken moeten ook losse delen één geheel worden. Niet alles ligt op z'n plek..... misschien moet je eerst iets in elkaar zetten."; // Verander dit in jouw hint
+
+    function checkCode() {
+      const input = document.getElementById("code").value.trim();
+      const message = document.getElementById("message");
+      const hint = document.getElementById("hint");
+      const hintText = document.getElementById("hint-text");
+
+      if (input === CORRECT_CODE) {
+        message.textContent = "";
+        hintText.textContent = HINT_TEXT;
+        hint.style.display = "block";
+      } else {
+        hint.style.display = "none";
+        message.style.color = "red";
+        message.textContent = "Foute code, probeer opnieuw.";
+      }
+    }
+  </script>
+
+</body>
+</html>
